@@ -1,0 +1,10 @@
+#!/bin/bash
+
+create() {
+         cd /var/lib/libvirt/images/
+         qemu-img create -f raw $1.img $2G
+}
+
+attach() {
+         virsh attach-disk $1 --source /var/lib/libvirt/images/$2 --target vdb --persistent
+}
