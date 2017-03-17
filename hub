@@ -8,3 +8,7 @@ create() {
 attach() {
          virsh attach-disk $1 --source /var/lib/libvirt/images/$2 --target vdb --persistent
 }
+
+conv1() {
+        qemu-img convert $1.qcow2 $2.raw
+}
